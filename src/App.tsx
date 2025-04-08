@@ -1,25 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// src/App.tsx
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import Login from './pages/Login';
+import Register from './pages/Register'; // Import the new Register page
+import Dashboard from './pages/Dashboard';
+import { Transfer } from './components/WalletOperations';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AuthProvider>
+        <Routes>
+          <Route path="/" element={<Register />} /> {/* Register page as the default route */}
+          <Route path="/login" element={<Login />} /> {/* Login page at /login */}
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/transfer" element={<Transfer />} />
+        </Routes>
+      </AuthProvider>
+    </Router>
   );
 }
 

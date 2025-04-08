@@ -31,7 +31,7 @@ const Login = () => {
   return (
     <div className="min-h-screen flex">
       {/* Left Panel */}
-      <div className="hidden md:flex w-2/5 bg-gradient-to-br from-background-dark to-[#2A3A3B] text-white p-10 flex-col justify-between">
+      <div className="hidden md:flex w-2/5 bg-gradient-to-br from-background-#0C110D to-[#2A3A3B] text-white p-10 flex-col justify-between">
         <div>
           <div className="flex items-center mb-8">
             <div className="w-10 h-10 bg-primary-yellow rounded-full flex items-center justify-center text-black font-bold text-xl">
