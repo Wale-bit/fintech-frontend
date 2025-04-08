@@ -27,10 +27,9 @@ const TransactionTable = ({ transactions }: TransactionTableProps) => {
   );
 
   return (
-    <div className="bg-white p-6 rounded-lg shadow">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold">Transaction History</h2>
-        <div className="flex gap-2">
+    <div className="w-2/3 bg-white rounded-md border p-6 shadow-sm overflow-x-auto">
+        <h2 className="text-lg font-semibold mb-4">Transaction History</h2>
+        <div className="flex space-x-2 mb-4">
           <span className="px-3 py-1 bg-gray-100 rounded-full text-sm">{transactions.length}</span>
           <button className="border border-gray-300 px-3 py-1 rounded-lg text-sm hover:bg-gray-100">
             Pending
@@ -45,8 +44,8 @@ const TransactionTable = ({ transactions }: TransactionTableProps) => {
             </svg>
           </button>
         </div>
-      </div>
-      <div className="overflow-x-auto">
+      
+      
         <table className="w-full text-left">
           <thead>
             <tr className="border-b">
@@ -65,9 +64,9 @@ const TransactionTable = ({ transactions }: TransactionTableProps) => {
                 <td className="py-3 px-4 text-sm">{transaction.type}</td>
                 <td className="py-3 px-4 text-sm">₦{transaction.amount.toLocaleString()}</td>
                 <td className="py-3 px-4 text-sm">
-                  <span className="flex items-center gap-2">
+                  <span className="inline-flex items-center space-x-1">
                     <span
-                      className={`w-3 h-3 rounded-full ${
+                      className={`w-2 h-2 rounded-full ${
                         transaction.status === 'Liquidated' ? 'bg-yellow-500' : 'bg-green-500'
                       }`}
                     ></span>
@@ -78,19 +77,20 @@ const TransactionTable = ({ transactions }: TransactionTableProps) => {
                   {format(new Date(transaction.createdAt), 'yyyy-MM-dd')}
                 </td>
                 <td className="py-3 px-4 text-sm">
-                  <button className="text-blue-500 hover:underline">View</button>
+                  <button className="text-blue-600 hover:underline">View</button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
-      </div>
-      <div className="flex justify-center mt-4">
-        <div className="flex items-center gap-2">
+      
+      <div className="flex items-center justify-between mt-4 text-sm">
+        
           <span className="text-sm text-gray-600">
             Page {currentPage} of {totalPages}
           </span>
-          <button
+          <div className="flex space-x-1">
+            <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
             className="px-3 py-1 border rounded-lg disabled:opacity-50"
@@ -115,7 +115,9 @@ const TransactionTable = ({ transactions }: TransactionTableProps) => {
           >
             {'>'}
           </button>
-        </div>
+          </div>
+          
+        
       </div>
     </div>
   );

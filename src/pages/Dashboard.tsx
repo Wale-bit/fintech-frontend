@@ -49,7 +49,7 @@ const Dashboard = () => {
   if (error) return <div className="text-center mt-10 text-red-500">{error}</div>;
 
   return (
-    <div className="flex min-h-screen">
+    <div className="flex h-screen bg-gray-50">
       {/* Sidebar */}
       <div
         className={`fixed inset-y-0 left-0 z-50 w-64 bg-background-dark text-white p-6 transform transition-transform duration-300 ease-in-out md:static md:transform-none ${
@@ -179,73 +179,83 @@ const Dashboard = () => {
         {/* Header */}
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-4">
-            <h1 className="text-2xl font-bold">Wallet</h1>
+            <h1 className="flex items-center justify-between">Wallet</h1>
             <div className="relative">
               <input
                 type="text"
                 placeholder="Search"
-                className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-background-dark"
+                className="pl-10 pr-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-background-dark bg-transparent w-full text-sm "
               />
               <svg className="w-5 h-5 absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
               </svg>
             </div>
           </div>
-          <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center text-black font-bold">
+          <div className="flex items-center space-x-2">
+            <div className="w-8 h-8 rounded-full bg-orange-200 text-center text-xs flex items-center justify-center font-semibold">
               M
             </div>
-            <span>Magnartis LTD</span>
-            <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <span className='text-sm font-medium'>Magnartis LTD</span>
+            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
             </svg>
           </div>
         </div>
 
         {/* Wallet and Transaction Sections */}
-        <div className="flex flex-wrap gap-6">
+        <div className="flex gap-6">
   {/* Wallet Section */}
-  <div className="flex-1 bg-white p-6 rounded-lg shadow">
-    <h2 className="text-lg font-semibold mb-4">Actual Balance</h2>
-    <p className="text-3xl font-bold mb-2">₦{balance?.toLocaleString() || '0.00'}</p>
-    <p className="text-gray-500 flex items-center gap-2 mb-6">
+  <div className="w-1/3 bg-white rounded-md border p-6 space-y-4 shadow-sm">
+    <h2 className="text-sm text-gray-500">Actual Balance</h2>
+    <hr />
+    <p className="text-2xl font-semibold text-gray-900">₦{balance?.toLocaleString() || '0.00'}</p>
+    <div className="flex items-center space-x-2 text-sm">
+      <p className="text-gray-500 flex items-center gap-2 mb-6">
       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
       </svg>
       Wema Bank 010 210 202
     </p>
-    <h2 className="text-lg font-semibold mb-4">Pending Amount</h2>
-    <p className="text-3xl font-bold mb-6">₦0.00</p>
-    <div className="flex flex-wrap gap-4">
+    </div>
+    <hr />
+    <div className="">
+      <h2 className="text-sm text-gray-500">Pending Amount</h2>
+    <p className="text-lg font-medium">₦0.00</p>
+    </div>
+    
+    <div className="flex space-x-2">
       <button
         onClick={() => setShowFundModal(true)}
-        className="bg-primary-yellow text-black px-4 py-2 rounded-lg hover:bg-[#FFD54F]"
+        className="bg-yellow-400 hover:bg-yellow-500 text-sm font-medium px-4 py-2 rounded-md"
       >
         Add Funds
       </button>
       <button
         onClick={() => navigate('/dashboard/transfer')}
-        className="border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100"
+        className="bg-gray-100 hover:bg-gray-200 text-sm font-medium px-4 py-2 rounded-md"
       >
         Withdraw
       </button>
-      <button className="border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100">
+    </div>
+    <div className="grid grid-cols-3 gap-2">
+      <button className="text-xs border rounded-md px-2 py-1 hover:bg-gray-50">
         PND Amount
       </button>
-      <button className="border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100">
+      <button className="text-xs border rounded-md px-2 py-1 hover:bg-gray-50">
         Place Lien
       </button>
-      <button className="border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100">
+      <button className="text-xs border rounded-md px-2 py-1 hover:bg-gray-50">
         Freeze Wallet
       </button>
     </div>
+      
+      
+    
   </div>
 
   {/* Transaction History Section */}
-  <div className="flex-1 bg-white p-6 rounded-lg shadow">
-    <h2 className="text-lg font-semibold mb-4">Transaction History</h2>
     <TransactionTable transactions={transactions} />
-  </div>
+
 </div>
       </div>
 
