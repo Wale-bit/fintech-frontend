@@ -31,37 +31,55 @@ const Login = () => {
   return (
     <div className="min-h-screen flex">
       {/* Left Panel */}
-      <div className="hidden md:flex w-2/5 bg-gradient-to-br from-background-#0C110D to-[#2A3A3B] text-white p-10 flex-col justify-between">
-        <div>
-          <div className="flex items-center mb-8">
-            <div className="w-10 h-10 bg-primary-yellow rounded-full flex items-center justify-center text-black font-bold text-xl">
-              B
-            </div>
-            <span className="ml-2 text-xl font-semibold">BEAM</span>
-          </div>
-          <h1 className="text-3xl font-bold">Unlock High Returns with Collateralized Equity Asset</h1>
-        </div>
-        <div className="flex flex-col gap-4">
-          <span className="flex items-center gap-2">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-            </svg>
-            Collateralized
-          </span>
-          <span className="flex items-center gap-2">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-            </svg>
-            Secured
-          </span>
-          <span className="flex items-center gap-2">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-            </svg>
-            Licensed & regulated
-          </span>
-        </div>
+      <div className="hidden lg:flex hidden md:flex w-2/5 h-screen bg-[#0b0c0a] relative overflow-hidden">
+  <svg
+    viewBox="0 0 1440 800"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="none"
+    className="absolute inset-0 w-full h-full object-cover opacity-80"
+  >
+    <defs>
+      <linearGradient id="beamGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stopColor="#1de372" />
+        <stop offset="100%" stopColor="#e3ff1d" />
+      </linearGradient>
+    </defs>
+    <g stroke="url(#beamGradient)" strokeWidth="0.5" fill="none">
+      <path d="M0,600 Q360,400 720,600 T1440,600" />
+      <path d="M0,550 Q360,350 720,550 T1440,550" />
+      <path d="M0,500 Q360,300 720,500 T1440,500" />
+      <path d="M0,450 Q360,250 720,450 T1440,450" />
+      <path d="M0,400 Q360,200 720,400 T1440,400" />
+      <path d="M0,350 Q360,150 720,350 T1440,350" />
+      <path d="M0,300 Q360,100 720,300 T1440,300" />
+    </g>
+  </svg>
+
+  <div className="z-10 p-12 flex flex-col justify-end text-white">
+    <div className="mb-10">
+      <div className="bg-yellow-400 text-black font-bold rounded-full w-8 h-8 flex items-center justify-center text-lg mb-4">
+        B.
       </div>
+      <h2 className="text-3xl font-semibold leading-tight">
+        Unlock High Returns<br />
+        with Collateralized<br />
+        Equity Asset
+      </h2>
+
+      <ul className="mt-6 space-y-2 text-sm text-gray-300">
+        <li className="flex items-center gap-2">
+          <span>⚖️</span> Collateralized
+        </li>
+        <li className="flex items-center gap-2">
+          <span>🔒</span> Secured
+        </li>
+        <li className="flex items-center gap-2">
+          <span>🏛️</span> Licensed & Regulated
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
       {/* Right Panel - Form */}
       <div className="w-full md:w-3/5 flex items-center justify-center bg-white p-10">

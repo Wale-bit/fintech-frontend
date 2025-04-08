@@ -6,9 +6,9 @@ module.exports = {
   theme: {
     extend: {
         colors: {
-            'primary-yellow': '#FFC107',
+            'primary-yellow': '#FFD700',
             'primary-black': '#1A1A1A',
-            'background-dark': '#1A2526',
+            'background-dark': '#0C110D',
             'background-light': '#F5F6FA',
     },
     fontFamily: {
